@@ -1,0 +1,30 @@
+import pandas as pd
+import numpy as np
+test= pd.read_csv('FoodBalanceSheets_E_Africa_NOFLAG.csv', encoding='Latin-1')
+test.head()
+#Question 11
+Q11=test.groupby(['Item']).sum()
+Q11
+#Question 12
+test['Y2015'].describe().round(3)
+#Question 13
+missing_2016= test['Y2016'].isnull().sum().round(2)
+missing_2016
+#Question 13
+percent_2016=missing_2016* 100 / len(test)
+percent_2016.round(2)
+#Question 14
+test.corr()
+#Question 15
+q15=test.groupby(['Element']).sum()
+q15
+#Question 17 & 18
+Q17=test.iloc[:,[5,11]]
+A17=Q17.groupby(['Element']).sum()
+A17
+#Question 19
+Q19=test.iloc[:,[1,11]]
+A19=Q19.groupby(['Area']).sum()
+A19
+Q20=test.iloc[:,1].count()
+Q20
